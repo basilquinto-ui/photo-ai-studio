@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Photo AI Studio — Generate professional ID photos instantly. Free, AI-powered, nothing stored.">
+  <title>Photo AI Studio — by sjiatravels.com</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:wght@300;400;500;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="public/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="public/favicon.svg">
+</head>
+<body>
+<div class="root">
+  <div class="sky"></div>
+  <div class="stars" id="stars"></div>
+
+  <!-- SPLASH -->
+  <div id="splash">
+    <div class="splash-inner">
+      <div class="logo-ring">
+        <div class="logo-inner">
+          <div class="cam-wrap">
+            <div class="cam-btn"></div>
+            <div class="cam-grip"></div>
+            <div class="cam-body">
+              <div class="cam-vf"></div>
+              <div class="cam-lens"><div class="cam-lens-in"></div></div>
+              <div class="cam-flash"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sp-brand">Photo AI Studio</div>
+      <a class="sp-by" href="https://www.sjiatravels.com" target="_blank" rel="noopener">by sjiatravels.com</a>
+      <div class="sp-pills">
+        <span class="sp-pill">100% Free</span>
+        <span class="sp-pill">AI Powered</span>
+        <span class="sp-pill">No Sign-up</span>
+      </div>
+      <div class="sp-divider"></div>
+      <div class="sp-tag">&#10022; Your Dream Documents Start Here &#10022;</div>
+      <div class="load-wrap">
+        <div class="load-lbl">Loading your adventure...</div>
+        <div class="bar-track">
+          <div class="bar-fill"></div>
+          <div class="plane-r">
+            <svg viewBox="0 0 26 26" fill="none">
+              <path d="M2 13 L20 5 L24 13 L20 21 Z" fill="#fff"/>
+              <path d="M8 13 L16 9 L20 13 L16 17 Z" fill="#f5a623"/>
+              <path d="M19 13 L24 11 L26 13 L24 15 Z" fill="#fff"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APP -->
+  <div id="app" style="display:none;">
+    <div class="topbar">
+      <div class="tb-brand">
+        <div class="tb-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#f5a623" stroke-width="1.8">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+            <circle cx="12" cy="13" r="4"/>
+          </svg>
+        </div>
+        <div>
+          <div class="tb-t1">Photo AI Studio</div>
+          <a class="tb-t2" href="https://www.sjiatravels.com" target="_blank" rel="noopener">by sjiatravels.com &#8599;</a>
+        </div>
+      </div>
+      <div class="free-badge">NO SIGN-UP</div>
+    </div>
+
+    <div class="body">
+      <!-- UPLOAD VIEW -->
+      <div id="upload-view">
+        <div class="glass">
+          <div class="upl-z" id="drop-zone">
+            <input type="file" id="file-input" accept="image/*">
+            <div class="upl-ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                <circle cx="12" cy="13" r="4"/>
+              </svg>
+            </div>
+            <div class="upl-t">Upload your photo</div>
+            <div class="upl-s">Tap or drag to browse &nbsp;&middot;&nbsp; JPG / PNG &nbsp;&middot;&nbsp; up to 10 MB</div>
+          </div>
+        </div>
+
+        <div class="glass">
+          <div class="sec-lbl">Attire style</div>
+          <div class="style-grid">
+            <button class="sty-btn active" data-style="Formal Suit">Formal Suit<span class="chk-mark">&#10003;</span></button>
+            <button class="sty-btn" data-style="Professional Blazer">Professional Blazer<span class="chk-mark">&#10003;</span></button>
+            <button class="sty-btn" data-style="White Shirt">White Shirt<span class="chk-mark">&#10003;</span></button>
+            <button class="sty-btn" data-style="Business Casual">Business Casual<span class="chk-mark">&#10003;</span></button>
+          </div>
+        </div>
+
+        <div class="priv-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          No sign-up needed &nbsp;&middot;&nbsp; Photos never stored
+        </div>
+
+        <button class="gen-btn" id="upload-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          Upload &amp; Generate
+        </button>
+      </div>
+
+      <!-- RESULT VIEW -->
+      <div id="result-view" style="display:none;">
+        <div class="glass">
+          <div class="sec-lbl">Your photo</div>
+          <div class="photo-center">
+            <div class="photo-frame">
+              <img id="preview-img" src="" alt="Uploaded photo">
+            </div>
+          </div>
+        </div>
+
+        <div class="glass">
+          <div class="sec-lbl">Output size &amp; format</div>
+          <div class="size-row">
+            <button class="sz-btn active" data-fmt="passport"><span class="sz-name">Passport</span><span class="sz-dim">35&#215;45 mm</span></button>
+            <button class="sz-btn" data-fmt="visa"><span class="sz-name">Visa</span><span class="sz-dim">2&#215;2 in</span></button>
+            <button class="sz-btn" data-fmt="id"><span class="sz-name">ID Card</span><span class="sz-dim">25&#215;35 mm</span></button>
+            <button class="sz-btn" data-fmt="square"><span class="sz-name">Square</span><span class="sz-dim">1&#215;1 in</span></button>
+          </div>
+        </div>
+
+        <div class="glass">
+          <div class="sec-lbl">Output preview</div>
+          <div class="out-preview">
+            <div class="out-frame">
+              <img id="output-img" src="" alt="Output preview">
+            </div>
+          </div>
+          <canvas id="out-canvas" style="display:none;"></canvas>
+
+          <!-- Processing + Travel Ad -->
+          <div class="proc-row" id="proc-row" style="display:none;">
+            <div class="proc-spinner-row">
+              <div class="spinner"></div>
+              <span class="proc-label">Analyzing your photo with AI&#8230;</span>
+            </div>
+            <a class="travel-ad" href="https://www.sjiatravels.com" target="_blank" rel="noopener">
+              <div class="ad-plane-wrap">
+                <svg viewBox="0 0 32 32" fill="none">
+                  <path d="M3 16 L24 6 L29 16 L24 26 Z" fill="#f5a623"/>
+                  <path d="M10 16 L19 11 L24 16 L19 21 Z" fill="#fff"/>
+                  <path d="M22 16 L28 13 L30 16 L28 19 Z" fill="#f5a623"/>
+                </svg>
+              </div>
+              <div class="ad-content">
+                <div class="ad-eyebrow">&#9992; Planning your next vacation?</div>
+                <div class="ad-headline">Discover Amazing Travel Packages</div>
+                <div class="ad-body">Flights &nbsp;&middot;&nbsp; Hotels &nbsp;&middot;&nbsp; Tours &nbsp;&middot;&nbsp; Visa Assistance</div>
+                <div class="ad-cta">Visit <strong>www.sjiatravels.com</strong> &#8594;</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="analysis-box" id="analysis-box" style="display:none;">
+            <div class="sec-lbl" style="margin-bottom:8px;">AI Photo Check</div>
+            <div id="check-list"></div>
+          </div>
+
+          <button class="dl-btn" id="dl-btn" style="display:none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download Image &#8212; Free
+          </button>
+          <button class="reset-btn" id="reset-btn">Start over</button>
+        </div>
+
+        <div class="footer">
+          <div class="ft-item"><strong>AI Vision</strong><span>Gemini API</span></div>
+          <div class="ft-item"><strong>Instant</strong><span>Seconds</span></div>
+          <div class="ft-item"><strong>No Sign-up</strong><span>Always free</span></div>
+          <div class="ft-item">
+            <a class="ft-link" href="https://www.sjiatravels.com" target="_blank" rel="noopener">
+              <strong>sjiatravels.com</strong><span>Book your trip &#8599;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="public/js/config.js"></script>
+<script src="public/js/app.js"></script>
+</body>
+</html>
